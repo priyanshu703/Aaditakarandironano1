@@ -1,0 +1,209 @@
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #555;
+  --card: #f8f9fb;
+  --accent: #0078d7;
+  --shadow: rgba(0, 0, 0, 0.08);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: #fff;
+  box-shadow: 0 1px 6px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  animation: slideDown 0.6s ease;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 64px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+  animation: glowPulse 2s infinite ease-in-out;
+  box-shadow: 0 0 10px rgba(0, 120, 215, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 120, 215, 0.9);
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(0, 120, 215, 0.6); }
+  50% { box-shadow: 0 0 20px rgba(0, 120, 215, 1); }
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+nav a:hover { color: var(--accent); }
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 8px var(--shadow);
+  margin-bottom: 24px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.hero {
+  text-align: center;
+  background: linear-gradient(180deg, #e6f3ff, #ffffff);
+}
+.hero h2 { margin-top: 0; }
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.btn:hover { background: #005fa3; transform: scale(1.05); }
+
+.post h3 { margin-top: 0; }
+.meta { color: var(--muted); font-size: 14px; }
+
+.product img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 6px var(--shadow);
+  transition: transform 0.3s ease;
+}
+.product img:hover { transform: scale(1.03); }
+.product p { font-weight: 500; margin-bottom: 8px; }
+
+.buy-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.buy-btn:hover { background: #005fa3; transform: scale(1.05); }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: auto;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+  animation: fadeIn 1s ease;
+}
+
+@media (max-width: 600px) {
+  header { flex-wrap: wrap; }
+  nav { margin-top: 10px; }
+}
+
+/* --- Gallery Styles --- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery .product {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 6px var(--shadow);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery .product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px var(--shadow);
+}
